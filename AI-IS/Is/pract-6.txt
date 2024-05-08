@@ -1,0 +1,36 @@
+import math
+
+# Receive n and g from user
+n = int(input("n = "))
+g = int(input("g = "))
+
+# Check if n is a prime number
+for i in range(2, n):
+    if n % i == 0:
+        print("Invalid n")
+        break
+else:  # This else corresponds to the for, not the if
+    # Check if g is a prime number
+    for i in range(2, g):
+        if g % i == 0:
+            print("Invalid g")
+            break
+    else:  # This else corresponds to the for, not the if
+        # Proceed if both n and g are prime
+        x = int(input("No. selected by Alice: "))
+        y = int(input("No. selected by Bob: "))
+
+        A = (math.pow(g, x)) % n
+        B = (math.pow(g, y)) % n
+        print("\nA=", A)
+        print("B=", B)
+
+        k1 = (math.pow(B, x)) % n
+        k2 = (math.pow(A, y)) % n
+        print("\nk1=", k1)
+        print("k2=", k2)
+
+        if k1 == k2:
+            print("Algo is correct")
+        else:
+            print("Algo is wrong")

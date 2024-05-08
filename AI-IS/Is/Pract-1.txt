@@ -1,0 +1,28 @@
+#include <string.h>
+#include <stdio.h>
+
+int main() {
+    char str[] = "Hello World";
+    int i, len;
+    len = strlen(str);
+    
+    // Applying bitwise AND with 127 to each character
+    for (i = 0; i < len; i++) {
+        printf("%c", str[i] & 127);
+    }
+    printf("\n");
+    
+    // Applying bitwise XOR with 127 to each character
+    for (i = 0; i < len; i++) {
+        printf("%c", str[i] ^ 127);
+    }
+    printf("\n");
+    
+    // Applying bitwise OR with 127 to each character
+    for (i = 0; i < len; i++) {
+        printf("%c", str[i] | 127);
+    }
+    printf("\n");
+
+    return 0;
+}

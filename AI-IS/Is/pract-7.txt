@@ -1,0 +1,31 @@
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+public class MD5Example {
+    public static void main(String[] args) {
+        String text = "Hello, world!"; // Text for which we want to calculate the MD5 digest
+        try {
+            // Create MessageDigest instance for MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            
+            // Add text bytes to digest
+            md.update(text.getBytes());
+            
+            // Get the MD5 digest
+            byte[] digest = md.digest();
+            
+            // Convert the byte array to a hexadecimal string
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) {
+                sb.append(String.format("%02x", b & 0xff));
+            }
+            String md5Hex = sb.toString();
+            
+            // Print the MD5 digest
+            System.out.println("MD5 Digest: " + md5Hex);
+        } catch (NoSuchAlgorithmException e) {
+            // Handle NoSuchAlgorithmException
+            e.printStackTrace();
+        }
+    }
+}
